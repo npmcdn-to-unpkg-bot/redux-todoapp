@@ -28,7 +28,7 @@ const todo = (state, action) => {
 const todos = (state = [], action) => {
 	switch(action.type) {
 		case 'ADD_TODO': 
-			return state.concat([todo(undefined, action)]);
+			return [todo(undefined, action)].concat(state);
 		case 'REMOVE_TODO':
 			var index = getTodoIndex(state, action);
 

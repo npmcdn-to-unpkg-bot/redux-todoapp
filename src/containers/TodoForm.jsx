@@ -4,15 +4,14 @@ import { connect } from 'react-redux';
 import TextField from 'material-ui/lib/text-field';
 
 let TodoForm = ({dispatch}) => {
-	let input;	
+	let input;
 	return (
-  		<form onSubmit={event => {
-			event.preventDefault();
-			dispatch(addTodo(input.getValue()));
-			input.value = '';
-  		}}>
-		    <TextField ref={node => {input = node}} placeholder="A fiscalização pira"/>
-		</form>
+	    <TextField ref={node => {input = node}} placeholder="Mais um todo"
+	    	onEnterKeyDown={event => {
+				event.preventDefault();
+				dispatch(addTodo(input.getValue()));
+				input.setValue('');
+	  		}}/>
 	);
 }
 

@@ -1,11 +1,12 @@
 import React from 'react';
 import { setVisibilityFilter } from '../actions';
 import { connect } from 'react-redux';
-import Link from '../components/Link';
+import FlatButton from 'material-ui/lib/flat-button';
 
 const mapStateToLinkProps = (state, ownProps) => {
 	return { 
-		active: state.visibilityFilter == ownProps.filter
+		disabled: state.visibilityFilter == ownProps.filter,
+		secondary: true
 	}
 };
 
@@ -15,5 +16,5 @@ const mapDispatchToLinkProps = (dispatch, ownProps) => {
 	}
 };
 
-const FilterLink = connect(mapStateToLinkProps, mapDispatchToLinkProps)(Link);
+const FilterLink = connect(mapStateToLinkProps, mapDispatchToLinkProps)(FlatButton);
 export default FilterLink;
